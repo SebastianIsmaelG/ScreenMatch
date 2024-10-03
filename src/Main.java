@@ -1,6 +1,8 @@
+import com.aluraCursos.screemMatch.modelos.Episodio;
 import com.aluraCursos.screemMatch.modelos.Pelicula;
 import com.aluraCursos.screemMatch.modelos.Series;
-import com.aluraCursos.screenMatch.modelos.CalculadoraDeTiempo;
+import com.aluraCursos.screenMatch.calculos.CalculadoraDeTiempo;
+import com.aluraCursos.screenMatch.calculos.FiltroRecomendacion;
 
 public class Main {
     public static void main(String[] args) {
@@ -49,6 +51,16 @@ public class Main {
         calculadora.incluye(pelicula3);
         System.out.println(calculadora.getTiempoTotal());
 
+        FiltroRecomendacion filtroRecomendacion = new FiltroRecomendacion();
+        filtroRecomendacion.filtra(pelicula1);
+
+        Episodio episodio = new Episodio();
+        episodio.setNumero(1);
+        episodio.setNombre("Capitulo 1");
+        episodio.setSerie(serie1);
+        episodio.setTotalVisualizaciones(300);
+
+        filtroRecomendacion.filtra(episodio);
 
     }
 }
