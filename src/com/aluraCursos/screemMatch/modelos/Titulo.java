@@ -1,6 +1,11 @@
 package com.aluraCursos.screemMatch.modelos;
 
-public class Titulo {
+public class Titulo implements Comparable<Titulo> {
+
+    public Titulo(String nombre, int fechaDeLanzamiento){
+        this.nombre = nombre;
+        this.fechaDeLanzamiento = fechaDeLanzamiento;
+    }
     private String nombre;   //Atributos siempre privados
     private int fechaDeLanzamiento;
     private int duracionMinutos;
@@ -20,9 +25,20 @@ public class Titulo {
     public void setDuracionMinutos(int duracionMinutos) {
         this.duracionMinutos = duracionMinutos;
     }
+
+
+
     /********************GETTERS*******************************************/
+
     public int getTotalDeNotas(){
         return totalDeNotas;
+    }
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getFechaDeLanzamiento() {
+        return fechaDeLanzamiento;
     }
 
     public int getDuracionMinutos() {
@@ -41,5 +57,10 @@ public class Titulo {
     }
     public double mediaRating(){
         return sumaNotas / totalDeNotas;
+    }
+
+    @Override
+    public int compareTo(Titulo otroTitulo) {
+        return this.getNombre().compareTo(otroTitulo.getNombre());
     }
 }
