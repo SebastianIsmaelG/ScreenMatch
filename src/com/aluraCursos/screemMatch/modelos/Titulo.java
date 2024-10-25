@@ -1,4 +1,6 @@
 package com.aluraCursos.screemMatch.modelos;
+import com.aluraCursos.screemMatch.excepciones.ErrorNAException;
+import com.google.gson.annotations.SerializedName;
 
 public class Titulo implements Comparable<Titulo> {
 
@@ -6,12 +8,26 @@ public class Titulo implements Comparable<Titulo> {
         this.nombre = nombre;
         this.fechaDeLanzamiento = fechaDeLanzamiento;
     }
-    private String nombre;   //Atributos siempre privados
+    //Atributos siempre privados
+    @SerializedName("Title")
+    private String nombre;
+
+    @SerializedName("Year")
     private int fechaDeLanzamiento;
     private int duracionMinutos;
     private boolean incluidoEnElPlan;
     private double sumaNotas;
     private int totalDeNotas;
+
+    public Titulo(TituloOmdb miTituloOmdb) {
+        this.nombre = miTituloOmdb.title();
+        this.fechaDeLanzamiento = Integer.valueOf(miTituloOmdb.year());
+        if (miTituloOmdb.runtime().contains("N/A")){
+            throw new ErrorNAException("Duracion invalida");
+        }
+        this.duracionMinutos = Integer.valueOf(miTituloOmdb.runtime().substring(0,3).replace(" ",""));
+    }
+
     /******************SETTERS******************************************/
     public void setNombre(String nombre) { //generate setter
         this.nombre = nombre;
@@ -62,5 +78,11 @@ public class Titulo implements Comparable<Titulo> {
     @Override
     public int compareTo(Titulo otroTitulo) {
         return this.getNombre().compareTo(otroTitulo.getNombre());
+    }
+
+    @Override
+    public String toString() {
+        return "nombre: '" + nombre + '\'' +
+                ", fechaDeLanzamiento: " + fechaDeLanzamiento + ", duracion: "+duracionMinutos+" mins";
     }
 }
