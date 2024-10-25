@@ -1,8 +1,8 @@
 package com.aluraCursos.main;
 
-import com.aluraCursos.screemMatch.modelos.Pelicula;
-import com.aluraCursos.screemMatch.modelos.Series;
-import com.aluraCursos.screemMatch.modelos.Titulo;
+import com.aluraCursos.screenMatch.modelos.Pelicula;
+import com.aluraCursos.screenMatch.modelos.Series;
+import com.aluraCursos.screenMatch.modelos.Titulo;
 
 import java.util.ArrayList;
 import java.util.Collections;

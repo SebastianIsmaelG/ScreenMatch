@@ -1,4 +1,4 @@
-package com.aluraCursos.screemMatch.modelos;
+package com.aluraCursos.screenMatch.modelos;
 
 import com.aluraCursos.screenMatch.calculos.Clasificacion;
 

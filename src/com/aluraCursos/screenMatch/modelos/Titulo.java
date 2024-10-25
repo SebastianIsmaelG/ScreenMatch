@@ -1,5 +1,5 @@
-package com.aluraCursos.screemMatch.modelos;
-import com.aluraCursos.screemMatch.excepciones.ErrorNAException;
+package com.aluraCursos.screenMatch.modelos;
+import com.aluraCursos.screenMatch.excepciones.ErrorNAException;
 import com.google.gson.annotations.SerializedName;
 
 public class Titulo implements Comparable<Titulo> {
@@ -9,10 +9,7 @@ public class Titulo implements Comparable<Titulo> {
         this.fechaDeLanzamiento = fechaDeLanzamiento;
     }
     //Atributos siempre privados
-    @SerializedName("Title")
     private String nombre;
-
-    @SerializedName("Year")
     private int fechaDeLanzamiento;
     private int duracionMinutos;
     private boolean incluidoEnElPlan;
@@ -23,7 +20,9 @@ public class Titulo implements Comparable<Titulo> {
         this.nombre = miTituloOmdb.title();
         this.fechaDeLanzamiento = Integer.valueOf(miTituloOmdb.year());
         if (miTituloOmdb.runtime().contains("N/A")){
+            this.fechaDeLanzamiento = 0 ;
             throw new ErrorNAException("Duracion invalida");
+
         }
         this.duracionMinutos = Integer.valueOf(miTituloOmdb.runtime().substring(0,3).replace(" ",""));
     }
@@ -82,7 +81,7 @@ public class Titulo implements Comparable<Titulo> {
 
     @Override
     public String toString() {
-        return "nombre: '" + nombre + '\'' +
-                ", fechaDeLanzamiento: " + fechaDeLanzamiento + ", duracion: "+duracionMinutos+" mins";
+        return "(nombre: '" + nombre + '\'' +
+                ", fechaDeLanzamiento: " + fechaDeLanzamiento + ", duracion: "+duracionMinutos+" mins)";
     }
 }

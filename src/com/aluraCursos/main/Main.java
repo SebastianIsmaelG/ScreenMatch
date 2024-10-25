@@ -1,8 +1,8 @@
 package com.aluraCursos.main;
 
-import com.aluraCursos.screemMatch.modelos.Episodio;
-import com.aluraCursos.screemMatch.modelos.Pelicula;
-import com.aluraCursos.screemMatch.modelos.Series;
+import com.aluraCursos.screenMatch.modelos.Episodio;
+import com.aluraCursos.screenMatch.modelos.Pelicula;
+import com.aluraCursos.screenMatch.modelos.Series;
 import com.aluraCursos.screenMatch.calculos.CalculadoraDeTiempo;
 import com.aluraCursos.screenMatch.calculos.FiltroRecomendacion;
 

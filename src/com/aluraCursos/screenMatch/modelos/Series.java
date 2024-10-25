@@ -1,4 +1,4 @@
-package com.aluraCursos.screemMatch.modelos;
+package com.aluraCursos.screenMatch.modelos;
 
 public class Series extends Titulo {
     private int temporadas;

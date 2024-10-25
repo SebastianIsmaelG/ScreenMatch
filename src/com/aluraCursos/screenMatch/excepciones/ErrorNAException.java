@@ -1,4 +1,4 @@
-package com.aluraCursos.screemMatch.excepciones;
+package com.aluraCursos.screenMatch.excepciones;
 
 public class ErrorNAException extends RuntimeException {
     private String mensaje;
